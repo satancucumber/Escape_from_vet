@@ -94,10 +94,6 @@ def main():
     run = True
     mode = 0
     n = 0
-    pass_text = passwords[randrange(0, 3)]
-    key_text = keywords[randrange(0, 3)]
-    text = ''
-    attempt = 0
     while run:
         clock.tick(FPS)
         for event in pygame.event.get():  # Checking for keys pressed / game closed
@@ -109,12 +105,14 @@ def main():
                 if mode == 0:
                     mode = 1
                 elif mode == 1:
-
                     if event.key == pygame.K_UP:
                         n -= 1
                     elif event.key == pygame.K_DOWN:
                         n += 1
                     elif event.key == pygame.K_RETURN:
+                        pass_text = passwords[randrange(0, 3)]
+                        key_text = keywords[randrange(0, 3)]
+                        text = ''
                         attempt = 0
                         mode = 2
                 elif mode == 2:
@@ -123,7 +121,6 @@ def main():
                 elif mode == 3:
                     if event.key == pygame.K_RETURN:
                         mode = 4
-
                 elif mode == 4 and n % 2 == 0:
                     if event.key == pygame.K_BACKSPACE:
                         text = text[0:len(text)-1:1]
