@@ -5,8 +5,8 @@ from y import one as coder
 from y import two as decoder
 
 pygame.init()
-font = pygame.font.Font(os.path.join('Fonts', 'Hack-Regular.ttf'), 12)
-font2 = pygame.font.Font(os.path.join('Fonts', 'Hack-Regular.ttf'), 8)
+font = pygame.font.Font(os.path.join('Fonts', 'Inconsolata-VariableFont_wdth,wght.ttf'), 18)
+font2 = pygame.font.Font(os.path.join('Fonts', 'Inconsolata-VariableFont_wdth,wght.ttf'), 8)
 WIDTH, HEIGHT = 1280, 720
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # Window
 pygame.display.set_caption("Побег от ветеринара")  # Project Name
@@ -48,7 +48,7 @@ def draw_scrin1(text, pass_text, attempt):
     press_surface = font.render(pass_text, True, (0, 0, 0))
     key_surface = font.render(text, True, (0, 0, 0))
     WIN.blit(press_surface, (765, 305))
-    WIN.blit(key_surface, (990, 522))
+    WIN.blit(key_surface, (990, 520))
     pygame.display.update()
 
 def draw_scrin0(text, key_text, attempt):
@@ -57,15 +57,10 @@ def draw_scrin0(text, key_text, attempt):
     WIN.blit(picker, (0, 0))
     heart = pygame.image.load(os.path.join('kartinki', 'heart' + str(attempt) + '.png'))
     WIN.blit(heart, (1109, 90))
-    '''if attempt:
-        attempt_surface = font2.render('Oops! The password is wrong! Attempts left: ' + str(3 - attempt), True, (255, 0, 0))
-        WIN.blit(attempt_surface, (0, 0))'''
-
     press_surface = font.render(text, True, (0, 0, 0))
     key_surface = font.render(key_text, True, (0, 0, 0))
-    WIN.blit(press_surface, (765, 305))
-    WIN.blit(key_surface, (990, 515))
-
+    WIN.blit(press_surface, (765, 303))
+    WIN.blit(key_surface, (990, 512))
     pygame.display.update()
 
 def draw_room(n):
@@ -138,7 +133,7 @@ def main():
                         elif attempt == 2:
                             mode = 5
                         else:
-                            attempt += 1                   
+                            attempt += 1
                         text = ''
                     else:
                         text += event.unicode
@@ -146,7 +141,6 @@ def main():
                     if event.key == pygame.K_BACKSPACE:
                         text = text[0:len(text)-1:1]
                     elif event.key == pygame.K_RETURN:
-                        print(text)
                         if checking1(text, pass_text):
                             mode = 6
                         elif attempt == 2:
