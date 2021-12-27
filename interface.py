@@ -1,8 +1,8 @@
 import pygame
 import os
 from random import randrange
-from y import one as coder
-from y import two as decoder
+from algorithms import coder
+from algorithms import decoder
 
 pygame.init()
 font = pygame.font.Font(os.path.join('Fonts', 'Inconsolata-VariableFont_wdth,wght.ttf'), 18)
